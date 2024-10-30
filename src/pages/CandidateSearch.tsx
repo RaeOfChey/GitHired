@@ -15,21 +15,21 @@ const CandidateSearch: React.FC = () => {
     }
   }, []);
 
-// Fetch candidates from GitHub API
-const fetchCandidates = async () => {
-  try {
-    const response = await fetch('https://api.github.com/users'); // You can change this to a more specific endpoint
-    if (!response.ok) {
-      throw new Error('Failed to fetch candidates');
+  // Fetch candidates from GitHub API
+  const fetchCandidates = async () => {
+    try {
+      const response = await fetch('https://api.github.com/users'); // You can change this to a more specific endpoint
+      if (!response.ok) {
+        throw new Error('Failed to fetch candidates');
+      }
+      const data: CandidateType[] = await response.json();
+      setCandidates(data);
+    } catch (err) {
+      // Use a type assertion to tell TypeScript that 'err' is an instance of 'Error'
+      const error = err as Error; // Type assertion
+      setError(error.message); // Now TypeScript recognizes 'error' as having a 'message' property
     }
-    const data: CandidateType[] = await response.json();
-    setCandidates(data);
-  } catch (err) {
-    // Use a type assertion to tell TypeScript that 'err' is an instance of 'Error'
-    const error = err as Error; // Type assertion
-    setError(error.message); // Now TypeScript recognizes 'error' as having a 'message' property
-  }
-};
+  };
 
   useEffect(() => {
     fetchCandidates(); // Call the function to fetch candidates
@@ -59,26 +59,29 @@ const fetchCandidates = async () => {
   const currentCandidate = candidates[currentCandidateIndex];
 
   return (
+    <div className="main-container">
+  <h1>Candidate Search</h1>
+  {error && <p>Error: {error}</p>} {/* Display any errors */}
+  {currentCandidate ? (
     <div>
-      <h1>Candidate Search</h1>
-      {error && <p>Error: {error}</p>} {/* Display any errors */}
-      {currentCandidate ? (
-        <div>
-          <img src={currentCandidate.avatar_url} alt={currentCandidate.login} />
-          <h2>{currentCandidate.login}</h2>
-          <p>Location: {currentCandidate.location}</p>
-          <p>Email: {currentCandidate.email}</p>
-          <p>Company: {currentCandidate.company}</p>
-          <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
-          <div>
-            <button onClick={() => handleSaveCandidate(currentCandidate)}>+</button>
-            <button onClick={nextCandidate}>-</button>
-          </div>
-        </div>
-      ) : (
-        <p>No candidates available</p>
-      )}
+      <div className="candidate-card">
+        <img src={currentCandidate.avatar_url} alt={currentCandidate.login} />
+        <h2>{currentCandidate.login}</h2>
+        <p>Location: {currentCandidate.location}</p>
+        <p>Email: {currentCandidate.email}</p>
+        <p>Company: {currentCandidate.company}</p>
+        <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">View Profile</a>
+      </div>
+      <div className="button-container">
+    
+        <button className="remove-button" onClick={nextCandidate}>-</button>
+        <button className="add-button" onClick={() => handleSaveCandidate(currentCandidate)}>+</button>
+      </div>
     </div>
+  ) : (
+    <p>No candidates available</p>
+  )}
+</div>
   );
 };
 

@@ -25,12 +25,10 @@ a:hover {
 }
 
 body {
-  background: linear-gradient(
-    180deg,
-    rgb(32, 44, 136) 0%,
-    rgba(9, 9, 121, 1) 15%,
-    rgba(0, 2, 18, 1) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(32, 44, 136) 0%,
+      rgba(9, 9, 121, 1) 15%,
+      rgba(0, 2, 18, 1) 100%);
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
@@ -57,9 +55,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -70,9 +70,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -133,11 +135,10 @@ a {
   text-decoration: none;
   color: #fff;
   letter-spacing: 1px;
-  
 }
 
 a:hover {
-  color: #fff; 
+  color: #fff;
   font-weight: 700;
   letter-spacing: .6px;
 }
@@ -146,4 +147,91 @@ a:hover {
 .table {
   width: 80vw;
   table-layout: fixed;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.candidate-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+  padding-bottom: 25px;
+  text-align: left;
+}
+
+.candidate-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.candidate-card h2, p {
+  padding-left: 20px;
+}
+
+.candidate-card a {
+  padding-left: 20px;
+  letter-spacing: auto;
+  padding-top: 12px;
+}
+
+.candidate-card a:hover {
+  font-weight: 700;
+  letter-spacing: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 175px;
+}
+
+.add-button {
+  background-color: green;
+  color: black;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button:hover {
+  background-color: darkgreen;
+}
+
+.remove-button {
+  background-color: red;
+  color: black;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
 }
