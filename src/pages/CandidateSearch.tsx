@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Candidate as CandidateType } from '../interfaces/Candidate.interface'; // Adjusted import path
+import { Candidate as CandidateType } from '../interfaces/Candidate.interface';
 
 const CandidateSearch: React.FC = () => {
   const [candidates, setCandidates] = useState<CandidateType[]>([]);
   const [currentCandidateIndex, setCurrentCandidateIndex] = useState<number>(0);
   const [savedCandidates, setSavedCandidates] = useState<CandidateType[]>([]);
+  const [error, setError] = useState<string | null>(null); // Error state
 
   // Load saved candidates from local storage on component mount
   useEffect(() => {
@@ -14,11 +15,30 @@ const CandidateSearch: React.FC = () => {
     }
   }, []);
 
+// Fetch candidates from GitHub API
+const fetchCandidates = async () => {
+  try {
+    const response = await fetch('https://api.github.com/users'); // You can change this to a more specific endpoint
+    if (!response.ok) {
+      throw new Error('Failed to fetch candidates');
+    }
+    const data: CandidateType[] = await response.json();
+    setCandidates(data);
+  } catch (err) {
+    // Use a type assertion to tell TypeScript that 'err' is an instance of 'Error'
+    const error = err as Error; // Type assertion
+    setError(error.message); // Now TypeScript recognizes 'error' as having a 'message' property
+  }
+};
+
+  useEffect(() => {
+    fetchCandidates(); // Call the function to fetch candidates
+  }, []);
+
   // Function to save candidate
   const handleSaveCandidate = (candidate: CandidateType) => {
-    // Check if the candidate is already saved
     const isAlreadySaved = savedCandidates.some(saved => saved.id === candidate.id);
-    
+
     if (!isAlreadySaved) {
       const updatedCandidates = [...savedCandidates, candidate];
       setSavedCandidates(updatedCandidates);
@@ -26,22 +46,6 @@ const CandidateSearch: React.FC = () => {
     }
     nextCandidate(); // Move to the next candidate after saving
   };
-
-  // Mock data for candidates (replace with actual data fetching logic)
-  useEffect(() => {
-    const fetchCandidates = async () => {
-      // Fetch candidates from your API
-      const mockCandidates: CandidateType[] = [
-        { id: 1, avatar_url: 'avatar1.png', login: 'User1', location: 'Location1', email: 'user1@example.com', company: 'Company1', html_url: 'https://github.com/user1' },
-        { id: 2, avatar_url: 'avatar2.png', login: 'User2', location: 'Location2', email: 'user2@example.com', company: 'Company2', html_url: 'https://github.com/user2' },
-        { id: 3, avatar_url: 'avatar3.png', login: 'User3', location: 'Location3', email: 'user3@example.com', company: 'Company3', html_url: 'https://github.com/user3' },
-        // Add more candidates as needed
-      ];
-      setCandidates(mockCandidates);
-    };
-
-    fetchCandidates();
-  }, []);
 
   // Function to go to the next candidate
   const nextCandidate = () => {
@@ -57,6 +61,7 @@ const CandidateSearch: React.FC = () => {
   return (
     <div>
       <h1>Candidate Search</h1>
+      {error && <p>Error: {error}</p>} {/* Display any errors */}
       {currentCandidate ? (
         <div>
           <img src={currentCandidate.avatar_url} alt={currentCandidate.login} />

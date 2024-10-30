@@ -13,11 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Link styles - email, view profile */
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -33,7 +35,7 @@ body {
   background-repeat: no-repeat no-repeat;
   background-position: center center;
   margin: 0;
-  place-items: center;
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
 }
@@ -43,6 +45,7 @@ h1 {
   line-height: 1.1;
 }
 
+/* Applying to Reject '-' & Add '+' buttons but supposed to be for users avatar image */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -75,6 +78,7 @@ button:focus-visible {
   }
 }
 
+/* All text in main element */
 main {
   color: #fff;
   width: 100%;
@@ -84,17 +88,20 @@ main {
   align-items: center;
 }
 
+/* Even row numbers (row 2, row 4, row 6, etc) */
 tr {
   border-radius: 10px;
   background-color: #000;
   color: white;
 }
 
+/* Odd row numbers (row 1, row 3, row 5, etc) */
 tbody tr:nth-child(odd) {
   background-color: #333333;
 }
 
-.nav {
+/* Nav element styles */
+/* .nav {
   display: flex;
   justify-content: flex-start;
   padding: 1em 2em;
@@ -108,12 +115,34 @@ tbody tr:nth-child(odd) {
 .nav-link {
   color: #fff;
   text-decoration: none;
+} */
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  padding: 30px;
+  margin: 0;
+  list-style-type: none;
 }
 
-.active {
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  letter-spacing: 1px;
+  
+}
+
+a:hover {
+  color: #fff; 
   font-weight: 700;
+  letter-spacing: .6px;
 }
 
+/* not sure */
 .table {
   width: 80vw;
   table-layout: fixed;

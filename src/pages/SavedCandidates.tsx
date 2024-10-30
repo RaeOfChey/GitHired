@@ -1,5 +1,7 @@
+// SavedCandidates.tsx
 import React, { useEffect, useState } from 'react';
 import { Candidate as CandidateType } from '../interfaces/Candidate.interface';
+
 const SavedCandidates: React.FC = () => {
   const [savedCandidates, setSavedCandidates] = useState<CandidateType[]>([]);
 
@@ -25,19 +27,34 @@ const SavedCandidates: React.FC = () => {
       {savedCandidates.length === 0 ? (
         <p>No potential candidates available</p>
       ) : (
-        <ul>
-          {savedCandidates.map((candidate) => (
-            <li key={candidate.id}> {/* Ensure id is unique */}
-              <img src={candidate.avatar_url} alt={candidate.login} />
-              <h2>{candidate.login}</h2>
-              <p>Location: {candidate.location}</p>
-              <p>Email: {candidate.email}</p>
-              <p>Company: {candidate.company}</p>
-              <p>Bio: {candidate.bio}</p>
-              <button onClick={() => handleReject(candidate.id)}>Reject</button>
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Location</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Bio</th>
+              <th>Reject</th>
+            </tr>
+          </thead>
+          <tbody>
+            {savedCandidates.map((candidate) => (
+              <tr key={candidate.id}>
+                <td><img src={candidate.avatar_url} alt={candidate.login} width="50" /></td>
+                <td>{candidate.login}</td>
+                <td>{candidate.location || 'N/A'}</td>
+                <td>{candidate.email || 'N/A'}</td>
+                <td>{candidate.company || 'N/A'}</td>
+                <td>{candidate.bio || 'N/A'}</td>
+                <td>
+                  <button onClick={() => handleReject(candidate.id)}>-</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

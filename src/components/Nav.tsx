@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="nav">
-      <ul className="nav-item">
+    <nav>
+      <ul>
         <li>
-          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/SavedCandidates" className="nav-link">Potential Candidates</Link>
+          <Link to="/SavedCandidates">Potential Candidates</Link>
         </li>
       </ul>
     </nav>
@@ -16,3 +16,5 @@ const Nav = () => {
 };
 
 export default Nav; // Make sure this line is present
+
+
