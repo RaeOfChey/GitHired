@@ -1,37 +1,43 @@
-import { useEffect, useState } from 'react';
-import { Candidate } from '../interfaces/Candidate.interface'; // Ensure this is the correct path
-
-const SavedCandidates = () => {
-  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>(() => {
-    const storedCandidates = localStorage.getItem('savedCandidates');
-    return storedCandidates ? JSON.parse(storedCandidates) : [];
-  });
+import React, { useEffect, useState } from 'react';
+import { Candidate as CandidateType } from '../interfaces/Candidate.interface';
+const SavedCandidates: React.FC = () => {
+  const [savedCandidates, setSavedCandidates] = useState<CandidateType[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('savedCandidates', JSON.stringify(savedCandidates)); // Update local storage on change
-  }, [savedCandidates]);
+    const storedCandidates = localStorage.getItem('potentialCandidates');
+    if (storedCandidates) {
+      setSavedCandidates(JSON.parse(storedCandidates));
+    }
+  }, []);
 
-  const handleReject = (id: number) => {
-    console.log(`Rejected candidate with id: ${id}`);
-    setSavedCandidates((prev) => prev.filter(candidate => candidate.id !== id)); // Remove rejected candidate
+  // Function to remove a candidate
+  const handleReject = (candidateId: number) => {
+    const updatedCandidates = savedCandidates.filter(
+      candidate => candidate.id !== candidateId
+    );
+    setSavedCandidates(updatedCandidates);
+    localStorage.setItem('potentialCandidates', JSON.stringify(updatedCandidates));
   };
 
   return (
     <div>
       <h1>Potential Candidates</h1>
-      {savedCandidates.length > 0 ? (
-        savedCandidates.map((candidate) => (
-          <div className="saved-candidate-card" key={candidate.id}>
-            <img src={candidate.avatar_url} alt={`${candidate.login}'s avatar`} />
-            <h2>{candidate.login}</h2>
-            {candidate.location && <p>Location: {candidate.location}</p>}
-            {candidate.email && <p>Email: {candidate.email}</p>}
-            {candidate.company && <p>Company: {candidate.company}</p>}
-            <button onClick={() => handleReject(candidate.id)}>-</button>
-          </div>
-        ))
-      ) : (
+      {savedCandidates.length === 0 ? (
         <p>No potential candidates available</p>
+      ) : (
+        <ul>
+          {savedCandidates.map((candidate) => (
+            <li key={candidate.id}> {/* Ensure id is unique */}
+              <img src={candidate.avatar_url} alt={candidate.login} />
+              <h2>{candidate.login}</h2>
+              <p>Location: {candidate.location}</p>
+              <p>Email: {candidate.email}</p>
+              <p>Company: {candidate.company}</p>
+              <p>Bio: {candidate.bio}</p>
+              <button onClick={() => handleReject(candidate.id)}>Reject</button>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
