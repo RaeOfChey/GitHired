@@ -23,11 +23,11 @@ const SavedCandidates: React.FC = () => {
 
   return (
     <div>
-      <h1>Potential Candidates</h1>
+      <h1 className="centered-heading">Potential Candidates</h1>
       {savedCandidates.length === 0 ? (
         <p>No potential candidates available</p>
       ) : (
-        <table>
+        <table className="candidate-table">
           <thead>
             <tr>
               <th>Image</th>
@@ -42,14 +42,16 @@ const SavedCandidates: React.FC = () => {
           <tbody>
             {savedCandidates.map((candidate) => (
               <tr key={candidate.id}>
-                <td><img src={candidate.avatar_url} alt={candidate.login} width="50" /></td>
+                <td>
+                  <img className="saved-candidate-image" src={candidate.avatar_url} alt={candidate.login} width="50" />
+                </td>
                 <td>{candidate.login}</td>
                 <td>{candidate.location || 'N/A'}</td>
                 <td>{candidate.email || 'N/A'}</td>
                 <td>{candidate.company || 'N/A'}</td>
                 <td>{candidate.bio || 'N/A'}</td>
-                <td>
-                  <button onClick={() => handleReject(candidate.id)}>-</button>
+                <td className="reject-column">
+                  <button className="reject-button" onClick={() => handleReject(candidate.id)}>-</button>
                 </td>
               </tr>
             ))}
