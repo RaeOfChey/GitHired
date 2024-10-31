@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "start": "vite preview --port 3000 --host 0.0.0.0",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "react": "^18.2.0",
