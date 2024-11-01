@@ -15,6 +15,10 @@
 ## Description
 GitHired is a candidate search application that leverages the GitHub API to help employers discover top candidates for hiring. With a streamlined interface, users can review candidate profiles, save promising candidates to a list, and easily view essential details like name, username, location, and GitHub link. Built with TypeScript and React, GitHired simplifies the candidate search process and is deployed on Render for easy access.
 
+<img width="320" alt="Capture 2" src="https://github.com/user-attachments/assets/3dff1c12-aa73-4b49-bb38-79ae5ccad323">
+
+Example of Candidate Search page
+
 ## Features
 - Search and display candidate profiles using the GitHub API
 - Save candidates to a list of potential hires for easy reference
@@ -22,7 +26,9 @@ GitHired is a candidate search application that leverages the GitHub API to help
 - Persistent storage for saved candidates using local storage
 - Deployed application for easy, real-world use by employers
 
+<img width="923" alt="Capture 3" src="https://github.com/user-attachments/assets/905ca6cc-e8b8-4d0a-be71-c7464cbd8645">
 
+Example of saved Potential Candidates page
 
 ## Installation
 To use the application, follow these steps:
