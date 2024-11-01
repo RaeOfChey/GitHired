@@ -12,10 +12,11 @@ const searchGithub = async () => {
         },
       }
     );
-    const data = await response.json();
+    
     if (!response.ok) {
       throw new Error('Invalid API response, check the network tab');
     }
+    const data = await response.json();
     return data;
   } catch (err) {
     console.error('An error occurred:', err);
@@ -27,15 +28,17 @@ const searchGithubUser = async (username: string) => {
   try {
     console.log('GitHub Token:', import.meta.env.VITE_GITHUB_TOKEN); // Log the token
 
-    const response = await fetch(`https://api.github.com/users/${username}/hovercard`, {
+    const response = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
       },
     });
-    const data = await response.json();
+    
     if (!response.ok) {
       throw new Error('Invalid API response, check the network tab');
     }
+    const data = await response.json();
+    
     return data;
   } catch (err) {
     console.error('An error occurred:', err);
