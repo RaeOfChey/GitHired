@@ -74,8 +74,12 @@ const CandidateSearch: React.FC = () => {
       </div>
       <div className="button-container">
     
-        <button className="remove-button" onClick={nextCandidate}>-</button>
-        <button className="add-button" onClick={() => handleSaveCandidate(currentCandidate)}>+</button>
+        <button className="remove-button" onClick={nextCandidate}>
+        <img src="plus.png" alt="Reject" className="reject-icon" />
+        </button>
+        <button className="add-button" onClick={() => handleSaveCandidate(currentCandidate)}>
+        <img src="plus.png" alt="Reject" className="reject-icon" />
+        </button>
       </div>
     </div>
   ) : (
