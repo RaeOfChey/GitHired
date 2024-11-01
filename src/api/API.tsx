@@ -1,11 +1,11 @@
 console.log('Test Variable:', import.meta.env.VITE_TEST_VAR);
-const searchGithub = async () => {
+
+const searchGithub = async (since: number = 1) => {
   try {
     console.log('GitHub Token:', import.meta.env.VITE_GITHUB_TOKEN); // Log the token
 
-    const start = Math.floor(Math.random() * 100000000) + 1;
     const response = await fetch(
-      `https://api.github.com/users?since=${start}`,
+      `https://api.github.com/users?since=${since}`,
       {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
