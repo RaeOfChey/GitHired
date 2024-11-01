@@ -51,13 +51,16 @@ const SavedCandidates: React.FC = () => {
                 <td>{candidate.company || 'N/A'}</td>
                 <td>{candidate.bio || 'N/A'}</td>
                 <td className="reject-column">
-                  <button className="reject-button" onClick={() => handleReject(candidate.id)}>-</button>
+                  <button className="reject-button" onClick={() => handleReject(candidate.id)}>
+                  <img src="plus.png" alt="Reject" className="reject-icon" />
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
+      <br></br>
     </div>
   );
 };

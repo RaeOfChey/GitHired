@@ -1,4 +1,4 @@
-console.log('Test Variable:', import.meta.env.VITE_TEST_VAR);
+// console.log('Test Variable:', import.meta.env.VITE_TEST_VAR);
 const searchGithub = async () => {
   try {
     console.log('GitHub Token:', import.meta.env.VITE_GITHUB_TOKEN); // Log the token
@@ -27,7 +27,7 @@ const searchGithubUser = async (username: string) => {
   try {
     console.log('GitHub Token:', import.meta.env.VITE_GITHUB_TOKEN); // Log the token
 
-    const response = await fetch(`https://api.github.com/users/${username}`, {
+    const response = await fetch(`https://api.github.com/users/${username}/hovercard`, {
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
       },
