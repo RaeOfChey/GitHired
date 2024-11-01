@@ -1,5 +1,7 @@
 # GitHired
 
+### Status: In Progress
+
 ![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)
 
 ## Table of Contents
@@ -15,7 +17,7 @@
 ## Description
 GitHired is a candidate search application that leverages the GitHub API to help employers discover top candidates for hiring. With a streamlined interface, users can review candidate profiles, save promising candidates to a list, and easily view essential details like name, username, location, and GitHub link. Built with TypeScript and React, GitHired simplifies the candidate search process and is deployed on Render for easy access.
 
-<img width="320" alt="Capture 2" src="https://github.com/user-attachments/assets/3dff1c12-aa73-4b49-bb38-79ae5ccad323">
+<img width="500" alt="Capture 2" src="https://github.com/user-attachments/assets/3dff1c12-aa73-4b49-bb38-79ae5ccad323">
 
 Example of Candidate Search page
 
@@ -26,7 +28,7 @@ Example of Candidate Search page
 - Persistent storage for saved candidates using local storage
 - Deployed application for easy, real-world use by employers
 
-<img width="923" alt="Capture 3" src="https://github.com/user-attachments/assets/905ca6cc-e8b8-4d0a-be71-c7464cbd8645">
+<img width="500" alt="Capture 3" src="https://github.com/user-attachments/assets/610629a0-db65-46d1-9f18-9d84bf8a4a1a">
 
 Example of saved Potential Candidates page
 
@@ -47,13 +49,7 @@ Once the application loads in your browser, use the candidate search interface t
 This project is licensed under the MIT License, which allows you to freely use, modify, and distribute this software, provided proper attribution is given.
 
 ## Contributing
-Contributions are welcome!  If you'd like to contribute to this project, follow the steps below.
-
-- Step 1: Fork the repository.
-- Step 2: Create a feature branch: git checkout -b feature/new-feature
-- Step 3: Commit your changes: git commit -m "Add new feature"
-- Step 4: Push to the branch: git push origin feature/new-feature
-- Step 5: Open a pull request.
+This project is part of a coding bootcamp assignment and is not open for contributions. To comply with the course requirements, I must complete this project individually without outside assistance. Therefore, pull requests, issues, or other contributions will not be accepted. Thank you for understanding!
 
 ## Tests
 Currently, this project does not have any automated tests. However, if you'd like to add tests, feel free to contribute! You can set up testing using a framework like Mocha or Jest.
