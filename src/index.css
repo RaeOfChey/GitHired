@@ -97,28 +97,35 @@ main {
 /* Even row numbers (row 2, row 4, row 6, etc) */
 tr {
   border-radius: 10px;
-  background-color: #000;
+  background-color: #2B2F33;
   color: white;
 }
 
 /* Odd row numbers (row 1, row 3, row 5, etc) */
 tbody tr:nth-child(odd) {
-  background-color: #333333;
+  background-color: #2B2F33;
 }
 
 .candidate-table {
   width: 100%;
+  border-spacing: 0; /* Removes spacing inside cells while keeping rounded corners */
+  border-radius: 10px; /* Adjust this value to round corners as desired */
+  overflow: hidden; /* Ensures rounded corners are clipped */
 
 }
 
 .candidate-table th {
   text-align: center;
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .candidate-table td {
   padding: 8px;
-  text-align: left;
+  text-align: center;
   width: 150px;
+  border: none;
 }
 
 .saved-candidate-image {
@@ -153,16 +160,22 @@ tbody tr td:nth-child(4):hover {
 
 .reject-button {
   background-color: red;
-  color: black;
+  color: white;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   border: none;
   cursor: pointer;
-  font-size: 15px;
+  /* font-size: 25px; */
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.reject-button img{
+  height: 20px;
+  width: 20px;
+
 }
 
 .reject-button:hover {

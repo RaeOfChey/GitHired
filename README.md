@@ -22,6 +22,7 @@ GitHired is a candidate search application that leverages the GitHub API to help
 - Persistent storage for saved candidates using local storage
 - Deployed application for easy, real-world use by employers
 
+
 ## Installation
 To use the application, follow these steps:
 
