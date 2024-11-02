@@ -9,10 +9,12 @@
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [License](#license)
-6. [Contributing](#contributing)
-7. [Tests](#tests)
-8. [Questions](#questions)
+5. [Tools and Technologies](#tools-and-technologies)
+6. [Dependencies and Installs](#dependencies-and-installs)
+7. [License](#license)
+8. [Contributing](#contributing)
+9. [Tests](#tests)
+10. [Questions](#questions)
 
 ## Description
 GitHired is a candidate search application that leverages the GitHub API to help employers discover top candidates for hiring. With a streamlined interface, users can review candidate profiles, save promising candidates to a list, and easily view essential details like name, username, location, and GitHub link. Built with TypeScript and React, GitHired simplifies the candidate search process and is deployed on Render for easy access.
@@ -41,9 +43,34 @@ To use the application, follow these steps:
 - Step 4. Create a .env file with your GitHub Personal Access Token
 
 ## Usage
-To start the application, run the following command: npm run dev
+View the live application here: https://githired.onrender.com
 
 Once the application loads in your browser, use the candidate search interface to view, save, or skip candidates. You can also view your saved list of potential candidates, which persists between sessions.
+
+## Tools and Technologies
+**Frontend Framework**:
+- React
+- React Router
+
+**Build Tool**
+- Vite
+
+**Styling**:
+  - Custom CSS
+  - CSS Media Queries
+  - CSS Animations
+
+**Hosting**
+- Render
+
+## Dependencies and Installs
+
+**NPM Packages**:
+  - `react`, `react-dom` - Core React dependencies.
+  - `react-router-dom` - For page routing.
+  - `typescript` - Provides type safety.
+  - `vite` - Used for initial project setup and fast builds.
+  - `eslint` - Enforces code standards with `.eslintrc.cjs` configuration.
 
 ## License
 This project is licensed under the MIT License, which allows you to freely use, modify, and distribute this software, provided proper attribution is given.
@@ -52,7 +79,7 @@ This project is licensed under the MIT License, which allows you to freely use, 
 This project is part of a coding bootcamp assignment and is not open for contributions. To comply with the course requirements, I must complete this project individually without outside assistance. Therefore, pull requests, issues, or other contributions will not be accepted. Thank you for understanding!
 
 ## Tests
-Currently, this project does not have any automated tests. However, if you'd like to add tests, feel free to contribute! You can set up testing using a framework like Mocha or Jest.
+Currently, this project does not have any automated tests.
 
 ## Questions
 If you have any questions about the repository, feel free to reach out by opening an issue or contacting me directly at cheyennaraelynn@gmail.com You can also find more of my work on GitHub at https://github.com/RaeOfChey.
