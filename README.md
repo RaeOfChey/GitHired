@@ -52,7 +52,7 @@ Once the application loads in your browser, use the candidate search interface t
 - React
 - React Router
 
-**Build Tool**
+**Build Tool**:
 - Vite
 
 **Styling**:
@@ -60,7 +60,7 @@ Once the application loads in your browser, use the candidate search interface t
   - CSS Media Queries
   - CSS Animations
 
-**Hosting**
+**Hosting**:
 - Render
 
 ## Dependencies and Installs
